@@ -1,0 +1,74 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Effortless Elegance",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "An expression of quiet luxury, Côte Royale is designed for the man who commands attention without seeking it. A reflection of nature’s raw beauty.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"button": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"__TYPE__": "LinkContent",
+						"key": "7438c0dd-4573-4ba5-9e5a-858a9d33f365",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://slicemachine.dev",
+							"text": "Shop Now",
+							"variant": "Secondary"
+						}
+					}
+				]
+			},
+			"image": {
+				"__TYPE__": "ImageContent",
+				"provider": "imgix",
+				"url": "https://images.unsplash.com/photo-1428550590922-34c77f716ad4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxibGFjayUyMGFuZCUyMHdoaXRlfGVufDB8fHx8MTc0MzAzNTc4NXww&ixlib=rb-4.0.3&q=85",
+				"alt": "two whales rushing into the water",
+				"origin": {
+					"id": "d93dJ4kehUg",
+					"url": "https://images.unsplash.com/photo-1428550590922-34c77f716ad4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw5fHxibGFjayUyMGFuZCUyMHdoaXRlfGVufDB8fHx8MTc0MzAzNTc4NXww&ixlib=rb-4.0.3&q=85",
+					"width": 2000,
+					"height": 1333
+				},
+				"width": 2000,
+				"height": 1333,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"thumbnails": {}
+			}
+		},
+		"items": []
+	}
+]

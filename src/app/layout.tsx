@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const gambarino = localFont({
+  src: "./gambarino.woff2",
+  display: "swap",
+  variable: "--font-gambarino",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const raleway = Raleway({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-raleway",
 });
 
 export const metadata: Metadata = {
@@ -25,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} `}>
-      <body className="bg-neutral-900 text-white antialiased">
+    <html lang="en" className={`${gambarino.variable} ${raleway.variable} `}>
+      <body className="bg-neutral-900 font-sans text-white antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />
