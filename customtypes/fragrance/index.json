@@ -1,0 +1,91 @@
+{
+  "format": "custom",
+  "id": "fragrance",
+  "label": "Fragrance",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "bottle_image": {
+        "type": "Image",
+        "config": {
+          "label": "Bottle Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "feature_image": {
+        "type": "Image",
+        "config": {
+          "label": "Feature Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "price": {
+        "type": "Number",
+        "config": {
+          "label": "price",
+          "placeholder": "Price in cents"
+        }
+      },
+      "size_ml": {
+        "type": "Number",
+        "config": {
+          "label": "Size (ml)",
+          "placeholder": ""
+        }
+      },
+      "scent_profile": {
+        "type": "Select",
+        "config": {
+          "label": "Scent Profile",
+          "placeholder": "",
+          "options": ["spicy", "woody", "fresh"],
+          "default_value": "spicy"
+        }
+      },
+      "mood": {
+        "type": "Select",
+        "config": {
+          "label": "mood",
+          "placeholder": "",
+          "options": ["bold", "grounded", "refreshing"],
+          "default_value": "bold"
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "OG Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}
