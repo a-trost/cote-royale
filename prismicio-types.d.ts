@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice = ScrollTextSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -151,6 +151,61 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *ScrollText → Default → Primary*
+ */
+export interface ScrollTextSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *ScrollText → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_text.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Text field in *ScrollText → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_text.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ScrollText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ScrollTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ScrollTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ScrollText*
+ */
+type ScrollTextSliceVariation = ScrollTextSliceDefault;
+
+/**
+ * ScrollText Shared Slice
+ *
+ * - **API ID**: `scroll_text`
+ * - **Description**: ScrollText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ScrollTextSlice = prismic.SharedSlice<
+  "scroll_text",
+  ScrollTextSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -180,6 +235,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      ScrollTextSlice,
+      ScrollTextSliceDefaultPrimary,
+      ScrollTextSliceVariation,
+      ScrollTextSliceDefault,
     };
   }
 }

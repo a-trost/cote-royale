@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "student",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit do deserunt anim veniam exercitation laborum consequat dolore. Eiusmod veniam cillum minim dolor eiusmod enim. Lorem exercitation aliqua officia duis enim aute cupidatat."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

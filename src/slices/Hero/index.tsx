@@ -60,7 +60,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           vars={{ delay: 1.7, duration: 1.1 }}
         >
           {slice.primary.button.map((link) => (
-            <ButtonLink key={link.key} field={link} variant="Secondary" />
+            <ButtonLink key={link.key} field={link} variant={link.variant} />
           ))}
         </FadeIn>
       </div>
