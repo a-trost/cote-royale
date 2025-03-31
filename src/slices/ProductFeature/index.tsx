@@ -6,11 +6,12 @@ import {
   SliceComponentProps,
 } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
-import { Bounded } from "@/components/Bounded";
 
 import { createClient } from "@/prismicio";
-import { ButtonLink } from "@/components/ButtonLink";
 import { formatPrice } from "@/utils/formatters";
+import { ButtonLink } from "@/components/ButtonLink";
+import { FadeIn } from "@/components/FadeIn";
+import { Bounded } from "@/components/Bounded";
 
 /**
  * Props for `ProductFeature`.
@@ -38,20 +39,34 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
       className="overflow-hidden bg-black py-16 text-white md:py-24"
     >
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3 lg:grid-rows-[auto,auto]">
-        <PrismicNextImage
-          field={slice.primary.image}
-          className="animate-in fopacity-0 h-auto w-full translate-y-16 object-cover lg:col-span-2 lg:row-span-2"
-        />
+        <FadeIn
+          className="translate-y-16 opacity-0 lg:col-span-2 lg:row-span-2"
+          start="top 80%"
+          vars={{ duration: 1 }}
+        >
+          <PrismicNextImage
+            field={slice.primary.image}
+            className="h-auto w-full object-cover"
+          />
+        </FadeIn>
 
-        <div className="animate-in fopacity-0 translate-y-16 space-y-6 self-start bg-white/10 p-10 lg:col-start-3 lg:row-start-1">
+        <FadeIn
+          className="translate-y-16 space-y-6 self-start bg-white/10 p-10 opacity-0 lg:col-start-3 lg:row-start-1"
+          start="top 80%"
+          vars={{ duration: 1, delay: 0.5 }}
+        >
           <h2 className="text-3xl leading-tight font-semibold md:text-4xl">
             <PrismicText field={slice.primary.heading} />
           </h2>
           <div className="max-w-lg text-base text-gray-300">
             <PrismicRichText field={slice.primary.description} />
           </div>
-        </div>
-        <div className="fopacity-0 relative translate-y-16 self-end bg-white/10 will-change-transform">
+        </FadeIn>
+        <FadeIn
+          className="animate-in fopacity-0 relative translate-y-16 self-end bg-white/10 will-change-transform"
+          start="top 80%"
+          vars={{ duration: 1, delay: 1 }}
+        >
           <PrismicNextImage
             field={fragrance?.data.bottle_image}
             className="mx-auto -mt-10 w-full -rotate-12 md:-mt-20"
@@ -75,7 +90,7 @@ const ProductFeature: FC<ProductFeatureProps> = async ({ slice }) => {
               <span>{formattedPrice}</span>
             </p>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </Bounded>
   );
