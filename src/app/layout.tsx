@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { createClient } from "@/prismicio";
 import { isFilled } from "@prismicio/client";
+import { ViewTransitions } from "next-view-transitions";
 
 const gambarino = localFont({
   src: "./gambarino.woff2",
@@ -45,12 +46,14 @@ export default async function RootLayout({
   const settings = await client.getSingle("settings");
 
   return (
-    <html lang="en" className={`${gambarino.variable} ${raleway.variable} `}>
-      <body className="bg-neutral-900 font-sans text-white antialiased">
-        <Navbar settings={settings} />
-        <main className="pt-14 md:pt-16">{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" className={`${gambarino.variable} ${raleway.variable} `}>
+        <body className="bg-neutral-900 font-sans text-white antialiased">
+          <Navbar settings={settings} />
+          <main className="pt-14 md:pt-16">{children}</main>
+          <Footer />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
