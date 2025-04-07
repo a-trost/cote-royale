@@ -1,7 +1,6 @@
 "use client";
 
 import { Content } from "@prismicio/client";
-import { PrismicNextLink } from "@prismicio/next";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +12,7 @@ import {
   HiUser,
   HiXMark,
 } from "react-icons/hi2";
+import { TransitionLink } from "./TransitionLink";
 
 type NavIconsProps = {
   className?: string;
@@ -68,7 +68,7 @@ export const Navbar = ({ settings }: NavbarProps) => {
 
           {/* Centered logo */}
           <div className="absolute left-1/2 -translate-x-1/2 transform">
-            <Link href="/">
+            <TransitionLink href="/">
               <Image
                 src="/logo.svg"
                 alt="Côte Royale"
@@ -76,7 +76,7 @@ export const Navbar = ({ settings }: NavbarProps) => {
                 height={30}
                 className="w-32 md:w-44"
               />
-            </Link>
+            </TransitionLink>
           </div>
           {/* Nav Icons */}
           <NavIcons className="hidden md:flex" />
@@ -86,7 +86,7 @@ export const Navbar = ({ settings }: NavbarProps) => {
       {/* Blur Overlay */}
       <div
         className={clsx(
-          "fixed inset-0 z-40 bg-black/40 opacity-0 transition-all duration-500",
+          "nav-drawer-blur fixed inset-0 z-40 bg-black/40 opacity-0 transition-all duration-500",
           isDrawerOpen
             ? "pointer-events-auto opacity-100 backdrop-blur-xs"
             : "pointer-events-none backdrop-blur-none",
@@ -98,7 +98,7 @@ export const Navbar = ({ settings }: NavbarProps) => {
       {/* Slide out drawer */}
       <div
         className={clsx(
-          "fixed top-0 left-0 z-50 h-full w-72 bg-neutral-900 p-6 transition-transform duration-500",
+          "nav-drawer fixed top-0 left-0 z-50 h-full w-72 bg-neutral-900 p-6 transition-transform duration-500",
 
           isDrawerOpen ? "translate-x-0" : "-translate-x-full",
         )}
@@ -118,7 +118,7 @@ export const Navbar = ({ settings }: NavbarProps) => {
         </div>
         <nav className="space-y-4" aria-label="Main Navigation">
           {settings.data.navigation_link.map((link) => (
-            <PrismicNextLink
+            <TransitionLink
               field={link}
               onClick={() => setIsDrawerOpen(false)}
               key={link.key}

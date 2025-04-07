@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Footer = () => {
   return (
-    <footer aria-labelledby="footer-heading" className="bg-black py-16">
+    <footer aria-labelledby="footer-heading" className="footer bg-black py-16">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
