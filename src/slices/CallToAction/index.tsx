@@ -32,7 +32,7 @@ const CallToAction: FC<CallToActionProps> = ({ slice }) => {
           id="cta-heading"
           as={"h2"}
           field={slice.primary.heading}
-          className="font-display mx-auto max-w-3xl leading-tight sm:text-6xl md:text-7xl"
+          className="font-display mx-auto max-w-3xl sm:text-6xl md:text-7xl"
           align="center"
           staggerAmount={0.1}
           triggerStart="top 80%"

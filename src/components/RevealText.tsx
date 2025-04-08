@@ -89,7 +89,7 @@ export const RevealText = ({
           className="mb-0 inline-block overflow-hidden"
           key={`${id}-${word}-${index}`}
         >
-          <span className="reveal-text__word mt-0 inline-block translate-y-full will-change-transform">
+          <span className="reveal-text__word mt-0 inline-block translate-y-full pb-3 will-change-transform">
             {word}
             {index < words.length - 1 ? <>&nbsp;</> : null}
           </span>
