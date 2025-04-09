@@ -1,7 +1,7 @@
 "use client";
 
-import { Content } from "@prismicio/client";
-import { useRef, useState } from "react";
+import { asImageSrc, Content, isFilled } from "@prismicio/client";
+import { useEffect, useRef, useState } from "react";
 import { StartScreen } from "./StartScreen";
 import { gsap } from "gsap";
 import { Question } from "./Question";
@@ -17,7 +17,7 @@ type QuizStatus = "NOT_STARTED" | "IN_PROGRESS" | "COMPLETED";
 
 export const Quiz = ({ quizData, fragrances }: QuizProps) => {
   const startScreenRef = useRef<HTMLDivElement>(null);
-  const [quizStatus, setQuizStatus] = useState<QuizStatus>("COMPLETED");
+  const [quizStatus, setQuizStatus] = useState<QuizStatus>("NOT_STARTED");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [votes, setVotes] = useState<Votes>({
     Terra: 0,
@@ -71,6 +71,26 @@ export const Quiz = ({ quizData, fragrances }: QuizProps) => {
     setCurrentQuestionIndex(0);
     setQuizStatus("NOT_STARTED");
   };
+
+  const imageKeys = ["image_terra", "image_ignis", "image_aqua"] as const;
+
+  type ImageKey = (typeof imageKeys)[number];
+
+  const questionImages = questions.flatMap((question) =>
+    imageKeys.map((key: ImageKey) =>
+      isFilled.image(question[key])
+        ? asImageSrc(question[key], { w: 200, h: 200 })
+        : "",
+    ),
+  );
+
+  useEffect(() => {
+    questionImages.forEach((url) => {
+      if (!url) return;
+      const img = new Image();
+      img.src = url;
+    });
+  }, [questionImages]);
 
   return (
     <div className="min-h-screen">
