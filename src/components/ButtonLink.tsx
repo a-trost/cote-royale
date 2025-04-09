@@ -20,6 +20,8 @@ export const ButtonLink = ({
         variant === "Secondary"
           ? "border border-white text-white hover:bg-white/20"
           : "bg-white text-black hover:bg-white/80",
+
+        className,
       )}
       {...restProps}
     />
