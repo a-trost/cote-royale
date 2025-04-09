@@ -4,9 +4,10 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { createClient } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
 import { isFilled } from "@prismicio/client";
 import { ViewTransitions } from "next-view-transitions";
+import { PrismicPreview } from "@prismicio/next";
 
 const gambarino = localFont({
   src: "./gambarino.woff2",
@@ -46,14 +47,19 @@ export default async function RootLayout({
   const settings = await client.getSingle("settings");
 
   return (
-    <ViewTransitions>
-      <html lang="en" className={`${gambarino.variable} ${raleway.variable} `}>
-        <body className="bg-neutral-900 font-sans text-white antialiased">
-          <Navbar settings={settings} />
-          <main className="pt-14 md:pt-16">{children}</main>
-          <Footer />
-        </body>
-      </html>
-    </ViewTransitions>
+    <PrismicPreview repositoryName={repositoryName}>
+      <ViewTransitions>
+        <html
+          lang="en"
+          className={`${gambarino.variable} ${raleway.variable} `}
+        >
+          <body className="bg-neutral-900 font-sans text-white antialiased">
+            <Navbar settings={settings} />
+            <main className="pt-14 md:pt-16">{children}</main>
+            <Footer />
+          </body>
+        </html>
+      </ViewTransitions>
+    </PrismicPreview>
   );
 }
