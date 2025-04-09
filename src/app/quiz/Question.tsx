@@ -2,7 +2,7 @@
 
 import { Content, ImageField } from "@prismicio/client";
 import { AnswerOption, FragranceType } from "./types";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import clsx from "clsx";
 import { PrismicNextImage } from "@prismicio/next";
 import { gsap } from "gsap";

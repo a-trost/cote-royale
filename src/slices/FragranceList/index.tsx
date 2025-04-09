@@ -1,10 +1,10 @@
-import { FC } from "react";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { PrismicNextLink } from "@prismicio/next";
+import { FC } from "react";
+
+import { FragranceDisplay } from "./FragranceDisplay";
 import { Bounded } from "@/components/Bounded";
 import { RevealText } from "@/components/RevealText";
-import { FragranceDisplay } from "./FragranceDisplay";
 
 /**
  * Props for `FragranceList`.

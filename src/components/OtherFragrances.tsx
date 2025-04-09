@@ -1,6 +1,6 @@
 import { createClient } from "@/prismicio";
 import { formatPrice } from "@/utils/formatters";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { PrismicNextImage } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
 import { TransitionLink } from "./TransitionLink";
 

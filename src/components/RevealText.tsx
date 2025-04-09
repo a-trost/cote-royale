@@ -39,7 +39,7 @@ export const RevealText = ({
   useGSAP(
     () => {
       if (!ref.current) return;
-      let mm = gsap.matchMedia();
+      const mm = gsap.matchMedia();
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.to(".reveal-text__word", {
